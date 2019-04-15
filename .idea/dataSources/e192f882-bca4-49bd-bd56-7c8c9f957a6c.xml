@@ -99,8 +99,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-04-14.14:55:26.014</IntrospectionTimestamp>
-      <IntrospectionStateNumber>3881</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-04-14.22:34:16.272</IntrospectionTimestamp>
+      <IntrospectionStateNumber>3966</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -147,186 +147,127 @@
       <Type>index</Type>
     </access-method>
     <sequence id="27" parent="20" name="category_id_seq">
-      <ObjectId>41504</ObjectId>
+      <ObjectId>41753</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>3877</StateNumber>
+      <StateNumber>3964</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="28" parent="20" name="product_id_seq">
-      <ObjectId>41517</ObjectId>
+      <ObjectId>41766</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>3878</StateNumber>
+      <StateNumber>3965</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="29" parent="20" name="transact_id_seq">
-      <ObjectId>41528</ObjectId>
+    <table id="29" parent="20" name="category">
+      <ObjectId>41755</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>3879</StateNumber>
-      <SequenceIdentity>1..2147483647</SequenceIdentity>
-      <BelongsToColumn>1</BelongsToColumn>
-      <CacheSize>1</CacheSize>
-      <DataType>integer</DataType>
-    </sequence>
-    <table id="30" parent="20" name="category">
-      <ObjectId>41506</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>3881</StateNumber>
+      <StateNumber>3966</StateNumber>
     </table>
-    <table id="31" parent="20" name="product">
-      <ObjectId>41519</ObjectId>
+    <table id="30" parent="20" name="product">
+      <ObjectId>41768</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>3880</StateNumber>
+      <StateNumber>3966</StateNumber>
     </table>
-    <table id="32" parent="20" name="transact">
-      <ObjectId>41530</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>3881</StateNumber>
-    </table>
-    <column id="33" parent="30" name="id">
+    <column id="31" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3877</StateNumber>
+      <StateNumber>3964</StateNumber>
       <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>category_id_seq</SequenceName>
     </column>
-    <column id="34" parent="30" name="name">
+    <column id="32" parent="29" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3877</StateNumber>
+      <StateNumber>3964</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="35" parent="30" name="category_pkey">
-      <ObjectId>41513</ObjectId>
+    <index id="33" parent="29" name="category_pkey">
+      <ObjectId>41762</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="36" parent="30" name="category_name_key">
-      <ObjectId>41515</ObjectId>
+    <index id="34" parent="29" name="category_name_key">
+      <ObjectId>41764</ObjectId>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="37" parent="30" name="category_pkey">
-      <ObjectId>41514</ObjectId>
+    <key id="35" parent="29" name="category_pkey">
+      <ObjectId>41763</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="38" parent="30" name="category_name_key">
-      <ObjectId>41516</ObjectId>
+    <key id="36" parent="29" name="category_name_key">
+      <ObjectId>41765</ObjectId>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>category_name_key</UnderlyingIndexName>
     </key>
-    <column id="39" parent="31" name="id">
+    <column id="37" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3878</StateNumber>
+      <StateNumber>3965</StateNumber>
       <DefaultExpression>nextval(&apos;product_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>product_id_seq</SequenceName>
     </column>
-    <column id="40" parent="31" name="category_id">
+    <column id="38" parent="30" name="category_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3878</StateNumber>
+      <StateNumber>3965</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="31" name="price">
+    <column id="39" parent="30" name="price_purchase">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3878</StateNumber>
+      <StateNumber>3965</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="42" parent="31" name="date_purchase">
+    <column id="40" parent="30" name="date_purchase">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>3878</StateNumber>
+      <StateNumber>3965</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="31" name="product_sold">
+    <column id="41" parent="30" name="price_demand">
       <Position>5</Position>
-      <DataType>boolean|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3878</StateNumber>
-      <TypeId>16</TypeId>
+      <DataType>integer|0s</DataType>
+      <StateNumber>3965</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <index id="44" parent="31" name="product_pkey">
-      <ObjectId>41526</ObjectId>
+    <column id="42" parent="30" name="date_demand">
+      <Position>6</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>3965</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="43" parent="30" name="product_pkey">
+      <ObjectId>41775</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="45" parent="31" name="product_pkey">
-      <ObjectId>41527</ObjectId>
+    <key id="44" parent="30" name="product_pkey">
+      <ObjectId>41776</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="46" parent="31" name="product_fk0">
-      <ObjectId>41539</ObjectId>
+    <foreign-key id="45" parent="30" name="product_fk0">
+      <ObjectId>41777</ObjectId>
       <ColNames>category_id</ColNames>
-      <RefTableId>41506</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>category</RefTableName>
-      <RefKeyName>category_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="47" parent="32" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3879</StateNumber>
-      <DefaultExpression>nextval(&apos;transact_id_seq&apos;::regclass)</DefaultExpression>
-      <TypeId>23</TypeId>
-      <SequenceName>transact_id_seq</SequenceName>
-    </column>
-    <column id="48" parent="32" name="category_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3879</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="49" parent="32" name="summ">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3879</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="50" parent="32" name="date_operation">
-      <Position>4</Position>
-      <DataType>varchar|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3879</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="51" parent="32" name="transact_pkey">
-      <ObjectId>41537</ObjectId>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="52" parent="32" name="transact_pkey">
-      <ObjectId>41538</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>transact_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="53" parent="32" name="transact_fk0">
-      <ObjectId>41544</ObjectId>
-      <ColNames>category_id</ColNames>
-      <RefTableId>41506</RefTableId>
+      <RefTableId>41755</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>category</RefTableName>
       <RefKeyName>category_pkey</RefKeyName>

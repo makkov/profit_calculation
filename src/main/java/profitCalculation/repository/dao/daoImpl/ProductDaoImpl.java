@@ -17,11 +17,10 @@ public class ProductDaoImpl implements ProductDao {
     public boolean purchaseProduct(Product product) {
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO product VALUES (DEFAULT, ?, ?, ?, ?)")) {
-            preparedStatement.setInt(1, product.getCategory());
-            preparedStatement.setInt(2, product.getPrice());
-            preparedStatement.setString(3, product.getDate());
-            preparedStatement.setBoolean(4, false);
+                     "INSERT INTO product VALUES (DEFAULT, ?, ?, ?, DEFAULT, DEFAULT)")) {
+            preparedStatement.setInt(1, product.getCategoryId());
+            preparedStatement.setInt(2, product.getPricePurchase());
+            preparedStatement.setString(3, product.getDatePurchase());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,8 +33,10 @@ public class ProductDaoImpl implements ProductDao {
     public boolean demandProduct(Product product) {
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "UPDATE product SET product_sold = TRUE WHERE id = ?")) {
-            preparedStatement.setInt(1, product.getId());
+                     "UPDATE product SET price_demand = ?, date_demand = ? WHERE id = ?")) {
+            preparedStatement.setInt(1, product.getPriceDemand());
+            preparedStatement.setString(2, product.getDateDemand());
+            preparedStatement.setInt(3, product.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +50,9 @@ public class ProductDaoImpl implements ProductDao {
         List<Product> result = null;
         try (Connection connection = connectionManager.getConnection();
              Statement statement = connection.createStatement()) {
-            try (ResultSet resultSet = statement.executeQuery("SELECT * FROM product WHERE product_sold = FALSE");) {
+            try (ResultSet resultSet = statement.executeQuery("SELECT * FROM product " +
+                    "WHERE date_demand IS NULL " +
+                    "ORDER BY to_date(date_purchase, 'DD.MM.YYYY')");) {
                 result = new ArrayList<>();
                 while (resultSet.next()) {
                     result.add(new Product(
@@ -65,6 +68,5 @@ public class ProductDaoImpl implements ProductDao {
             e.printStackTrace();
         }
         return result;
-
     }
 }

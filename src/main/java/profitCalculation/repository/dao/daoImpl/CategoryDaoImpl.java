@@ -22,7 +22,6 @@ public class CategoryDaoImpl implements CategoryDao {
             preparedStatement.setString(1, category.getName());
             preparedStatement.execute();
         } catch (SQLException e) {
-//            e.printStackTrace();
             return false;
         }
         return true;

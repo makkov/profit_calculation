@@ -2,17 +2,18 @@ package profitCalculation.pojo;
 
 public class Product {
 
-    Integer id;
-    Integer category;
-    Integer price;
-    String date;
-    boolean productIsSold;
+    private Integer id;
+    private Integer categoryId;
+    private Integer pricePurchase;
+    private String datePurchase;
+    private Integer priceDemand;
+    private String dateDemand;
 
-    public Product(Integer id, Integer category, Integer price, String date) {
+    public Product(Integer id, Integer categoryId, Integer pricePurchase, String datePurchase) {
         this.id = id;
-        this.category = category;
-        this.price = price;
-        this.date = date;
+        this.categoryId = categoryId;
+        this.pricePurchase = pricePurchase;
+        this.datePurchase = datePurchase;
     }
 
     public Integer getId() {
@@ -23,35 +24,43 @@ public class Product {
         this.id = id;
     }
 
-    public Integer getCategory() {
-        return category;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Integer category) {
-        this.category = category;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getPricePurchase() {
+        return pricePurchase;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setPricePurchase(Integer pricePurchase) {
+        this.pricePurchase = pricePurchase;
     }
 
-    public String getDate() {
-        return date;
+    public String getDatePurchase() {
+        return datePurchase;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDatePurchase(String datePurchase) {
+        this.datePurchase = datePurchase;
     }
 
-    public boolean isProductIsSold() {
-        return productIsSold;
+    public Integer getPriceDemand() {
+        return priceDemand;
     }
 
-    public void setProductIsSold(boolean productIsSold) {
-        this.productIsSold = productIsSold;
+    public void setPriceDemand(Integer priceDemand) {
+        this.priceDemand = priceDemand;
+    }
+
+    public String getDateDemand() {
+        return dateDemand;
+    }
+
+    public void setDateDemand(String dateDemand) {
+        this.dateDemand = dateDemand;
     }
 }

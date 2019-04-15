@@ -18,12 +18,4 @@ public class CategoryServiceImpl implements CategoryService {
             return false;
         }
     }
-
-    @Override
-    public Category getCategoryByName(String name) {
-        if (name != null) {
-            return categoryDao.getCategoryByName(name);
-        }
-        return null;
-    }
 }
